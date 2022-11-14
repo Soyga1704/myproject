@@ -17,7 +17,6 @@ mushroomImg = pygame.transform.scale(mushroomImg, (10, 10))
 
 dis_width = 600
 dis_height = 400
-# Размер экрана
 
 dis = pygame.display.set_mode((dis_width, dis_height))
 pygame.display.set_caption('Snake Game by Amanita Design')
@@ -33,33 +32,33 @@ score_font = pygame.font.SysFont("comicsansms", 35)
 def Your_score(score):
     value = score_font.render("Your Score: " + str(score), True, yellow)
     dis.blit(value, [0, 0])
-'''
-Функция создаёт доп. дисплей с очками игрока 
-Переменная score - балл в игре (будет задан позже)
-'''
+    '''
+    Функция создаёт доп. дисплей с очками игрока 
+    Переменная score - балл в игре (будет задан позже)
+    '''
 
 def our_snake(snake_block, snake_list):
     for x in snake_list:
         pygame.draw.rect(dis, black, [x[0], x[1], snake_block, snake_block])
-'''
-Функция создаёт нашу змейку (аргументы - ширина (постоянная) и изменяющаяся длина)
-'''
+    '''
+    Функция создаёт нашу змейку (аргументы - ширина (постоянная) и изменяющаяся длина)
+    '''
 
 
 def message(msg, color):
     mesg = font_style.render(msg, True, color)
     dis.blit(mesg, [dis_width / 6, dis_height / 3])
-'''
-Функция создаёт доп. дисплей, который будет оповещать о проигрыше
-Переменная msg - текст сообщения
-Переменная color - цвет сообщения
-'''
+    '''
+    Функция создаёт доп. дисплей, который будет оповещать о проигрыше
+    Переменная msg - текст сообщения
+    Переменная color - цвет сообщения
+    '''
 
 
 def gameLoop():
-'''
-Функция, описывающая игровой цикл
-'''
+    '''
+    Функция, описывающая игровой цикл
+    '''
     game_over = False
     game_close = False
 
@@ -75,7 +74,7 @@ def gameLoop():
     foodx = round(random.randrange(0, dis_width - snake_block) / 10.0) * 10.0
     foody = round(random.randrange(0, dis_height - snake_block) / 10.0) * 10.0
     
-    while not game_over: #пока игра идёт
+    while not game_over:
 
         while game_close == True:
             dis.fill(blue)
@@ -114,7 +113,6 @@ def gameLoop():
         y1 += y1_change
         dis.fill(blue)
         dis.blit(mushroomImg, (foodx, foody))
-        pygame.draw.rect(dis, green, [foodx, foody, snake_block, snake_block])
         snake_Head = []
         snake_Head.append(x1)
         snake_Head.append(y1)
